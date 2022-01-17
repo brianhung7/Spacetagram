@@ -1,11 +1,26 @@
-import React from 'react';
-const {useState, useEffect} = React;
+import React, { useReducer } from 'react';
+// const {useState, useEffect} = React;
 
 
-const Card = () => {
+const Card = (props) => {
 
     return (
-        <div>HELLO</div>
+        <div>
+            {props.content.map((post) => (
+                <div>
+                    <div>
+                        {post.title}
+                    </div>
+                    <div>
+                        {post.explanation}
+                    </div>                    
+                    <div>
+
+                        <img src={post.url} alt="NASA"/>
+                    </div>
+                </div>
+            ))}
+        </div>
     )
 }
 
