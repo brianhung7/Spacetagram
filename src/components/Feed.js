@@ -23,15 +23,18 @@ const Feed = () => {
     },[]);
 
     return (
-        <Container align="center" sx={{my:6}}>
-            {/* {content[0] ? <div>{content[0].explanation}</div> : <div>...Loading</div>} */}
-            {/* <Post content = {content} likes={likes} setLikes={setLikes}/> */}
+        <Container align="center" sx={{my:10}}>
             {content ? <div>
             { content.map((post, postIdx) => (
                 <Post post={post} postIdx={postIdx} likes={likes} setLikes={setLikes}/>
             ))} 
             </div>: 
-            <div><CircularProgress /></div>
+            <div style={{
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%),'
+            }}><CircularProgress /></div>
         }
             
         </Container>

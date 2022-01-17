@@ -1,11 +1,11 @@
 import React from "react";
-import { AppBar } from "@mui/material";
+import { AppBar, Typography } from "@mui/material";
 
 const Navbar = () => {
 
     return (
-        <AppBar position="fixed" sx={{py: 1, textAlign:"center"}}>
-            Spacestagram: Image-sharing from the final frontier
+        <AppBar position="fixed" sx={{py: 2, textAlign:"center"}}>
+            <Typography variant='h5'>Spacestagram: Image-sharing from the final frontier</Typography>
         </AppBar>
     )
 }

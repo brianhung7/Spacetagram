@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import { Card, CardMedia, Typography, Zoom } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import NASA from '../NASA.png'
 
 
 
@@ -26,26 +27,27 @@ const Post = ({post, postIdx, likes, setLikes }) => {
         <>
             {/* <Button variant="contained">Hello World</Button> */}
             <Card sx={boxDesign} >
-                <Typography variant='h4'>{post.title}</Typography>
+                <CardMedia sx={{display:'flex',justifyContent:'center'}}>
+                    <img src={NASA} alt="logo" style={{width:'35px', height:'30px'}} />
+                    <Typography variant='h5'>{post.title}</Typography>
+                </CardMedia>
                 Published on: {formatDate(post.date)}
                 <CardMedia component='img' image={post.url} alt="NASA" />
                 {likes[postIdx] ?  
                 <Zoom in={true}> 
-                    <FavoriteIcon cursor="pointer" sx={{ color: 'red' }} onClick={(e) => {
+                    <FavoriteIcon fontSize="large" cursor="pointer" sx={{ color: 'red' }} onClick={(e) => {
                         let temp = [...likes]
                         temp[postIdx] = false
                         setLikes(temp)
                     }} /> 
                 </Zoom> :       
-                    <FavoriteBorderOutlinedIcon cursor="pointer" onClick={(e) => {
+                    <FavoriteBorderOutlinedIcon fontSize="large" cursor="pointer" onClick={(e) => {
                         let temp = [...likes]
                         temp[postIdx] = true
                         setLikes(temp)
                     }} />
                 }
-
-                <Typography px={3} py={2}>{post.explanation}</Typography>
-
+                <Typography align={'left'} px={3} py={1}>{post.explanation}</Typography>
             </Card>
         </>
     )
