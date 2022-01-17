@@ -1,5 +1,6 @@
 import React from 'react';
-import Card from './Card';
+import Post from './Post';
+import { Container } from '@mui/material';
 const {useState, useEffect} = React;
 
 
@@ -19,12 +20,10 @@ const Feed = () => {
     },[]);
 
     return (
-        <>
-        <div>
+        <Container align="center">
             {/* {content[0] ? <div>{content[0].explanation}</div> : <div>...Loading</div>} */}
-            <Card content = {content}/>
-        </div>
-        </>
+            <Post content = {content}/>
+        </Container>
 
     )
 }
