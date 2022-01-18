@@ -11,8 +11,7 @@ const Feed = () => {
     const [likes, setLikes] = useState([])
     const [page, setPage] = useState(12)
     const [comments, setComments] = useState([])
-    // const url = 'https://api.nasa.gov/planetary/apod?api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG'
-    const api = `https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`
+    // const api = `https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`
     // const fetchData = async(url) =>{
     //     await fetch(url)
     //     .then(res => res.json())
@@ -39,7 +38,7 @@ const Feed = () => {
 
     useEffect(() => {
         const fetchData = async() =>{
-            await fetch(api)
+            await fetch(`https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`)
             .then(res => res.json())
             .then(data => {
                 setContent(data)
