@@ -1,8 +1,9 @@
 import React from 'react';
 import Post from './Post';
 import { Container,CircularProgress, Button } from '@mui/material';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 const {useState, useEffect} = React;
-
 
 
 const Feed = () => {
@@ -48,14 +49,14 @@ const Feed = () => {
                 top: '50%',
                 left: '10%',
                 transform: 'translate(-50%, -50%),'
-            }}variant="contained" disabled={page < 5} onClick={() => {updatePage('decrease')}}>Previous</Button>
+            }} variant="contained" disabled={page < 5} startIcon={<KeyboardDoubleArrowLeftIcon />} onClick={() => {updatePage('decrease')}}>Previous</Button>
 
             <Button style={{
                 position: 'fixed',
                 top: '50%',
                 left: '85%',
                 transform: 'translate(-50%, -50%),'
-            }}variant="contained" disabled={page > 26} onClick={() => {updatePage('increase')}}>Next</Button>
+            }}variant="contained" disabled={page > 26} endIcon={<KeyboardDoubleArrowRightIcon />}onClick={() => {updatePage('increase')}}>Next</Button>
 
             {content ? <div>
             { content.map((post, postIdx) => (

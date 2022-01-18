@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import Button from '@mui/material/Button';
 import { Box, TextField, CardMedia, Typography } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import SendIcon from '@mui/icons-material/Send';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import NASA from '../NASA.png'
@@ -16,6 +17,8 @@ const Comment = ({comments, setComments, postIdx}) => {
         newComms[postIdx].push(message)
         setComments(newComms)
         e.target[0].value = ''
+        setMessage('')
+
     }
 
     return (
@@ -29,8 +32,9 @@ const Comment = ({comments, setComments, postIdx}) => {
             ))}
             <Box sx={{ display: 'flex', alignItems: 'flex-end', paddingBottom:'3px' }}>
                 <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                <form onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit} style={{display:'flex', alignItems: 'flex-end'}}>
                     <TextField id="input-with-sx" label="Write a comment!" variant="standard" onInput={e => setMessage(e.target.value)} />
+                    <Button endIcon={<SendIcon />} size="small" variant="contained" type='submit' disabled={message === ''}>Post</Button>
                 </form>
             </Box>
         </CardMedia>
