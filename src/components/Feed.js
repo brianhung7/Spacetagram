@@ -20,7 +20,6 @@ const Feed = () => {
             setContent(data)
             setLikes(data.map(post => false))
             setComments(data.map(post => []))
-            console.log(data)
         })
     }
 
