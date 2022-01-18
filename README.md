@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Spacetagram 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Brian Pham's Submission for Shopify's Frontend Developer position.
 
-## Available Scripts
+[View the live version of Spacetagram Here](https://silly-cori-57ec5f.netlify.app/)
+## About
 
-In the project directory, you can run:
+  Shopify's front end developer challenge was to make a webpage that can pull images from NASA's API and and allow users to 'like' and 'unlike' images. Furthermore information about each image will be displayed, in my case we can view descriptions and the published date in a human-readable format. 
+  
+  Some additional features I added was **animating the like action**, **a loading state while waiting for API data**, **the ability to leave comments**, and **refreshing API calls by going forward or backwards in time.**
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started Locally 
+1. Clone down the repository with ```git clone https://github.com/brianhung7/Spacetagram.git```
+2. ```npm install``` to install dependencies.
+3. ```npm start``` to spin up the application.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
 
-### `npm test`
+Project was built in Javascript, React, and Material UI.  Deployment was done through netlify. React was chosen as my library of choice as it is great at making reusable components in addition to making it easy to make single page applications. This was also my first time utilizing Material UI as I wanted to get in some practice with React Component libraries. Furthermore, Material UI made styling a breeze and extremely efficient without having to fiddle with minor CSS problems.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+- Pulls from NASA Picture Of The Day API
+- Like/Unlike photos with an animation
+- Loading state while waiting for NASA's API to return data
+- Refresh API calls and images by either increasing/decreasing the view date
+- Comment functionality 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future
+- Add a date selector to view photos from specifics dates
