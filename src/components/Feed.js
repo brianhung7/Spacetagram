@@ -8,7 +8,7 @@ const {useState, useEffect} = React;
 const Feed = () => {
     const [content, setContent] = useState(null)
     const [likes, setLikes] = useState([])
-    const [page, setPage] = useState(2)
+    const [page, setPage] = useState(12)
     const [comments, setComments] = useState([])
     // const url = 'https://api.nasa.gov/planetary/apod?api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG'
     const api = `https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`
@@ -19,7 +19,7 @@ const Feed = () => {
             setContent(data)
             setLikes(data.map(post => false))
             setComments(data.map(post => []))
-            console.log(comments)
+            console.log(data)
         })
     }
 
@@ -31,7 +31,7 @@ const Feed = () => {
         } else if (str === 'decrease'){
             newPage -= 5
         }
-        if(newPage > 30 || newPage < 2){
+        if(newPage > 30 || newPage < 3){
             newPage = 2
         }
         setPage(newPage)
@@ -48,18 +48,18 @@ const Feed = () => {
                 top: '50%',
                 left: '10%',
                 transform: 'translate(-50%, -50%),'
-            }}variant="contained" onClick={() => {updatePage('decrease')}}>Previous</Button>
-            
+            }}variant="contained" disabled={page < 5} onClick={() => {updatePage('decrease')}}>Previous</Button>
+
             <Button style={{
                 position: 'fixed',
                 top: '50%',
                 left: '85%',
                 transform: 'translate(-50%, -50%),'
-            }}variant="contained" onClick={() => {updatePage('increase')}}>Next</Button>
+            }}variant="contained" disabled={page > 26} onClick={() => {updatePage('increase')}}>Next</Button>
 
             {content ? <div>
             { content.map((post, postIdx) => (
-                <Post post={post} postIdx={postIdx} likes={likes} setLikes={setLikes} comments={comments} setComments={setComments}/>
+                <Post key={postIdx} post={post} postIdx={postIdx} likes={likes} setLikes={setLikes} comments={comments} setComments={setComments}/>
             ))} 
             </div>: 
             <div style={{

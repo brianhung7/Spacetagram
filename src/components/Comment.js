@@ -23,8 +23,8 @@ const Comment = ({comments, setComments, postIdx}) => {
             {comments[postIdx]?.map((c) => (
                 <CardMedia sx={{display:'flex', alignItems: 'center'}}>
                     <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                    <Typography sx={{ fontWeight: 'bold' }}>SpaceFan:  </Typography>
-                    <Typography> {c} </Typography>
+                    <Typography sx={{ fontWeight: 'bold' }}>SpaceFan  </Typography>
+                    <Typography>: {c} </Typography>
                 </CardMedia>
             ))}
             <Box sx={{ display: 'flex', alignItems: 'flex-end', paddingBottom:'3px' }}>
