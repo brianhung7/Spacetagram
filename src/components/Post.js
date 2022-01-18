@@ -19,8 +19,9 @@ const boxDesign = {
 const Post = ({post, postIdx, likes, setLikes, comments, setComments }) => {
 
     const formatDate = (date) =>{
-        let formatted = new Date(date)
-        return formatted.toDateString()
+        const formatted = new Date(date)
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return formatted.toLocaleDateString(undefined, options)
     }
     const grow = (e) => {
         e.target.style.transition = 'all .2s ease-in-out';
