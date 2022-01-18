@@ -9,6 +9,7 @@ const Feed = () => {
     const [content, setContent] = useState(null)
     const [likes, setLikes] = useState([])
     const [page, setPage] = useState(2)
+    const [comments, setComments] = useState([])
     // const url = 'https://api.nasa.gov/planetary/apod?api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG'
     const api = `https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`
     const fetchData = async(url) =>{
@@ -17,6 +18,8 @@ const Feed = () => {
         .then(data => {
             setContent(data)
             setLikes(data.map(post => false))
+            setComments(data.map(post => ['im here', 'not here']))
+            console.log(comments)
         })
     }
 
@@ -56,7 +59,7 @@ const Feed = () => {
 
             {content ? <div>
             { content.map((post, postIdx) => (
-                <Post post={post} postIdx={postIdx} likes={likes} setLikes={setLikes}/>
+                <Post post={post} postIdx={postIdx} likes={likes} setLikes={setLikes} comments={comments} setComments={setComments}/>
             ))} 
             </div>: 
             <div style={{

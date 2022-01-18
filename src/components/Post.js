@@ -5,6 +5,7 @@ import { Card, CardMedia, Typography, Zoom } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import NASA from '../NASA.png'
+import Comment from './Comment';
 
 const boxDesign = {
     border: '1px solid grey', 
@@ -15,7 +16,7 @@ const boxDesign = {
 }
 
 
-const Post = ({post, postIdx, likes, setLikes }) => {
+const Post = ({post, postIdx, likes, setLikes, comments, setComments }) => {
 
     const formatDate = (date) =>{
         let formatted = new Date(date)
@@ -61,6 +62,7 @@ const Post = ({post, postIdx, likes, setLikes }) => {
                     }} />
                 }
                 <Typography align={'left'} px={3} py={1}>{post.explanation}</Typography>
+                <Comment comments={comments} setComments={setComments} postIdx={postIdx}/>
             </Card>
         </>
     )
