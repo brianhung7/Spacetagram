@@ -36,12 +36,13 @@ const Post = ({post, postIdx, likes, setLikes, comments, setComments }) => {
         <>
             {/* <Button variant="contained">Hello World</Button> */}
             <Card sx={boxDesign} >
-                <CardMedia sx={{display:'flex',justifyContent:'center'}}>
+                <CardMedia sx={{display:'flex',justifyContent:'center', padding: '5px 0'}}>
                     <img src={NASA} alt="logo" style={{width:'35px', height:'30px'}} />
                     <Typography variant='h5'>{post.title}</Typography>
                 </CardMedia>
-                Published on: {formatDate(post.date)}
+                {/* Published on: {formatDate(post.date)} */}
                 <CardMedia component='img' image={post.url} alt="NASA" />
+                <Typography>Published on: {formatDate(post.date)}</Typography>
                 {likes[postIdx] ?  
                 <Zoom in={true}> 
                     <FavoriteIcon fontSize="large" cursor="pointer" sx={{ color: 'red' }}
