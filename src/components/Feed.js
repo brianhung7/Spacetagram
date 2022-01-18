@@ -1,16 +1,18 @@
 import React from 'react';
 import Post from './Post';
-import { Container,CircularProgress } from '@mui/material';
+import { Container,CircularProgress, Button } from '@mui/material';
 const {useState, useEffect} = React;
+
 
 
 const Feed = () => {
     const [content, setContent] = useState(null)
     const [likes, setLikes] = useState([])
+    const [page, setPage] = useState(2)
     // const url = 'https://api.nasa.gov/planetary/apod?api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG'
-    const url = 'https://api.nasa.gov/planetary/apod?start_date=2015-09-07&end_date=2015-09-10&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG'
-    const fetchData = async() =>{
-        fetch(url)
+    const api = `https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`
+    const fetchData = async(url) =>{
+        await fetch(url)
         .then(res => res.json())
         .then(data => {
             setContent(data)
@@ -18,12 +20,40 @@ const Feed = () => {
         })
     }
 
+    const updatePage = (str) =>{
+        setContent(null)
+        let newPage = page
+        if(str === 'increase'){
+            newPage += 5
+        } else if (str === 'decrease'){
+            newPage -= 5
+        }
+        if(newPage > 30 || newPage < 2){
+            newPage = 2
+        }
+        setPage(newPage)
+    }
+
     useEffect(() => {
-        fetchData();
-    },[]);
+        fetchData(api);
+    },[page]);
 
     return (
         <Container align="center" sx={{my:10}}>
+            <Button style={{
+                position: 'fixed',
+                top: '50%',
+                left: '10%',
+                transform: 'translate(-50%, -50%),'
+            }}variant="contained" onClick={() => {updatePage('decrease')}}>Previous</Button>
+            
+            <Button style={{
+                position: 'fixed',
+                top: '50%',
+                left: '85%',
+                transform: 'translate(-50%, -50%),'
+            }}variant="contained" onClick={() => {updatePage('increase')}}>Next</Button>
+
             {content ? <div>
             { content.map((post, postIdx) => (
                 <Post post={post} postIdx={postIdx} likes={likes} setLikes={setLikes}/>

@@ -6,22 +6,29 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import NASA from '../NASA.png'
 
-
+const boxDesign = {
+    border: '1px solid grey', 
+    borderRadius: '12px',
+    boxShadow: 1,
+    width: '65%',
+    margin: '2% 2%'
+}
 
 
 const Post = ({post, postIdx, likes, setLikes }) => {
 
-    const boxDesign = {
-        border: '1px solid grey', 
-        borderRadius: '12px',
-        boxShadow: 1,
-        width: '65%',
-        margin: '2% 2%'
-    }
     const formatDate = (date) =>{
         let formatted = new Date(date)
-        console.log(formatted.toDateString())
         return formatted.toDateString()
+    }
+    const grow = (e) => {
+        e.target.style.transition = 'all .2s ease-in-out';
+        e.target.style.transform = 'scale(1.1)';
+    }
+
+    const ungrow = (e) =>{
+        e.target.style.transition = 'all .2s ease-in-out';
+        e.target.style.transform = 'scale(1)';
     }
     return (
         <>
@@ -35,13 +42,19 @@ const Post = ({post, postIdx, likes, setLikes }) => {
                 <CardMedia component='img' image={post.url} alt="NASA" />
                 {likes[postIdx] ?  
                 <Zoom in={true}> 
-                    <FavoriteIcon fontSize="large" cursor="pointer" sx={{ color: 'red' }} onClick={(e) => {
+                    <FavoriteIcon fontSize="large" cursor="pointer" sx={{ color: 'red' }}
+                    onMouseOver={grow}
+                    onMouseLeave={ungrow}
+                    onClick={(e) => {
                         let temp = [...likes]
                         temp[postIdx] = false
                         setLikes(temp)
                     }} /> 
                 </Zoom> :       
-                    <FavoriteBorderOutlinedIcon fontSize="large" cursor="pointer" onClick={(e) => {
+                    <FavoriteBorderOutlinedIcon fontSize="large" cursor="pointer"
+                    onMouseOver={grow}
+                    onMouseLeave={ungrow}
+                    onClick={(e) => {
                         let temp = [...likes]
                         temp[postIdx] = true
                         setLikes(temp)
