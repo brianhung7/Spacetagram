@@ -18,7 +18,7 @@ const Feed = () => {
         .then(data => {
             setContent(data)
             setLikes(data.map(post => false))
-            setComments(data.map(post => ['im here', 'not here']))
+            setComments(data.map(post => []))
             console.log(comments)
         })
     }
