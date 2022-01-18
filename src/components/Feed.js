@@ -38,6 +38,7 @@ const Feed = () => {
     }
 
     useEffect(() => {
+        
         fetchData(api);
     },[page]);
 

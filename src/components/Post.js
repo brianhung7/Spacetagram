@@ -1,6 +1,4 @@
-import React, { useReducer } from 'react';
-// const {useState, useEffect} = React;
-import Button from '@mui/material/Button';
+import React from 'react';
 import { Card, CardMedia, Typography, Zoom } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';

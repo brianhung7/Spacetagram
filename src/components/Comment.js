@@ -1,11 +1,9 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import { Box, TextField, CardMedia, Typography } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SendIcon from '@mui/icons-material/Send';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import NASA from '../NASA.png'
+
 const {useState} = React;
 
 const Comment = ({comments, setComments, postIdx}) => {
