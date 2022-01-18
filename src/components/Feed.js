@@ -13,15 +13,15 @@ const Feed = () => {
     const [comments, setComments] = useState([])
     // const url = 'https://api.nasa.gov/planetary/apod?api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG'
     const api = `https://api.nasa.gov/planetary/apod?start_date=2019-10-${page}&end_date=2019-10-${page + 4}&api_key=Lsggm1T1vkPp5eU3FfpsdZktg6NTAbFgtQRExXWG`
-    const fetchData = async(url) =>{
-        await fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            setContent(data)
-            setLikes(data.map(post => false))
-            setComments(data.map(post => []))
-        })
-    }
+    // const fetchData = async(url) =>{
+    //     await fetch(url)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setContent(data)
+    //         setLikes(data.map(post => false))
+    //         setComments(data.map(post => []))
+    //     })
+    // }
 
     const updatePage = (str) =>{
         setContent(null)
@@ -38,8 +38,16 @@ const Feed = () => {
     }
 
     useEffect(() => {
-        
-        fetchData(api);
+        const fetchData = async() =>{
+            await fetch(api)
+            .then(res => res.json())
+            .then(data => {
+                setContent(data)
+                setLikes(data.map(post => false))
+                setComments(data.map(post => []))
+            })
+        }
+        fetchData();
     },[page]);
 
     return (
